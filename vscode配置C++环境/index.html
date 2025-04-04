@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Aitotra's Blog | Aitotra's Blog</title><meta name="author" content="Aitotra"><meta name="copyright" content="Aitotra"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="@[toc] win11系统一、安装MinGW-w641.下载解压MinGw-W64进入MinGw-w64官网https:&#x2F;&#x2F;www.mingw-w64.org&#x2F;，点击Download，点击MingW-W64-builds找到Installation:Github，点击跳转到Github页面。这里不推荐很多教程使用的SourceForge上下载安装，SourceForge上构建的版本很久，目前仅支">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Aitotra&#39;s Blog">
+<meta property="og:url" content="https://zf-account.github.io/vscode%E9%85%8D%E7%BD%AEC++%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="Aitotra&#39;s Blog">
+<meta property="og:description" content="@[toc] win11系统一、安装MinGW-w641.下载解压MinGw-W64进入MinGw-w64官网https:&#x2F;&#x2F;www.mingw-w64.org&#x2F;，点击Download，点击MingW-W64-builds找到Installation:Github，点击跳转到Github页面。这里不推荐很多教程使用的SourceForge上下载安装，SourceForge上构建的版本很久，目前仅支">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zf-account.github.io/img/WechatIMG65.jpg">
+<meta property="article:published_time" content="2025-04-04T09:47:35.846Z">
+<meta property="article:modified_time" content="2025-04-04T09:47:35.847Z">
+<meta property="article:author" content="Aitotra">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zf-account.github.io/img/WechatIMG65.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "url": "https://zf-account.github.io/vscode%E9%85%8D%E7%BD%AEC++%E7%8E%AF%E5%A2%83/",
+  "image": "https://zf-account.github.io/img/WechatIMG65.jpg",
+  "datePublished": "2025-04-04T09:47:35.846Z",
+  "dateModified": "2025-04-04T09:47:35.847Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Aitotra",
+      "url": "https://zf-account.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zf-account.github.io/vscode%E9%85%8D%E7%BD%AEC++%E7%8E%AF%E5%A2%83/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Aitotra\'s Blog',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Aitotra's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Aitotra's Blog</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-04-04T09:47:35.846Z" title="Created 2025-04-04 17:47:35">2025-04-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-04-04T09:47:35.847Z" title="Updated 2025-04-04 17:47:35">2025-04-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>@[toc]</p>
+<h1 id="win11系统"><a href="#win11系统" class="headerlink" title="win11系统"></a>win11系统</h1><h2 id="一、安装MinGW-w64"><a href="#一、安装MinGW-w64" class="headerlink" title="一、安装MinGW-w64"></a>一、安装MinGW-w64</h2><h3 id="1-下载解压MinGw-W64"><a href="#1-下载解压MinGw-W64" class="headerlink" title="1.下载解压MinGw-W64"></a>1.下载解压MinGw-W64</h3><p>进入<a target="_blank" rel="noopener" href="https://www.mingw-w64.org/">MinGw-w64官网</a><a target="_blank" rel="noopener" href="https://www.mingw-w64.org/%EF%BC%8C%E7%82%B9%E5%87%BBDownload%EF%BC%8C%E7%82%B9%E5%87%BBMingW-W64-builds">https://www.mingw-w64.org/，点击Download，点击MingW-W64-builds</a><br><img src="https://img-blog.csdnimg.cn/direct/a40aa555e87f4f4a9472a4651a4a4eb4.png#pic_center" alt="MinGw-W64官网"><br>找到Installation:Github，点击跳转到Github页面。这里不推荐很多教程使用的SourceForge上下载安装，SourceForge上构建的版本很久，目前仅支持到8.1.0，而github已经支持到了13.2.0。其次，SourceForge虽然有较新的11.0版本，但下载完成之后是源码，需要自己手动编译。<br><img src="https://img-blog.csdnimg.cn/direct/31764f3246bb4bd8a526690cdbdf55e5.png#pic_center" alt="在这里插入图片描述"><br>跳转到Github页面之后，选择适合自己的版本安装，我这里选择x86_64-13.2.0-release-posix-seh-ucrt-rt_v11-rev0.7z。这里说明一下文件命名的含义，方便大家选择适合自己的版本。<br><img src="https://img-blog.csdnimg.cn/direct/bee528c841984a5fb7bba23d6ae825a9.png#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li>文件命名开头为i686或x86_64，代表两种不同的架构，这与电脑使用的CPU有关。i686是32位的Intel x86架构；x86-64是64位的Intel x86架构，实际上由AMD发明，也称为AMD64。目前大部分电脑位x86_64架构</li>
+<li>release是Github版本控制的分支，不需要管</li>
+<li>第三个参数是posix或Win32，代表两种不同的线程模型。posix是一种跨平台的线程模型，程序将使用POSIX API，允许使用std::thread;win32是Windows原生的线程模型，程序将使用Win32 API，不允许使用std::thread。通常选用posix</li>
+<li>第四个参数是seh或dwarf，代表两种不同的异常处理机制。seh是一种新的异常处理方式，性能较好，但只支持64位。dwarf是一种古老的异常处理方式，稳定性好，但只支持32位。</li>
+<li>第五个参数为msvcrt或ucrt，代表两种不同的runtime库。msvcrt是Microsoft的C运行时库。这个库包含了许多基本的C语言函数，这个库在任何Windows机器上都可以找到。然而，每个Windows版本的msvcrt.dll可能会有些许不同，而且它是Microsoft的专有代码。因此，虽然msvcrt.dll在部署时可以大大简化工作，但也可能带来一些问题。ucrt代表Microsoft的Universal C运行时库，这个库是Windows操作系统的一个组件，包含在Windows 10或更高版本，以及Windows Server 2016或更高版本中。它可以通过Windows Update在仍在扩展支持的旧操作系统上使用。选择使用UCRT，那么程序将使用Universal CRT，而不是MSVCRT，这将使程序更兼容MSVC编译的二进制文件，但不兼容MSVCRT环境。通常选用UCRT</li>
+</ul>
+<p>最后，建议安装次新版本，最新版可能会有一些未知的bug。</p>
+<p>下载完成后，将压缩包解压至合适的位置(通常为D盘，C盘空间富裕解压到C盘也无所谓，如果盘符较多，解压至EFG盘…甚至Z盘都可以)。</p>
+<h3 id="2-配置系统环境变量"><a href="#2-配置系统环境变量" class="headerlink" title="2.配置系统环境变量"></a>2.配置系统环境变量</h3><p>解压完成后，进入设置，在搜索框搜索“高级系统设置”，点击查看高级系统设置<img src="https://img-blog.csdnimg.cn/direct/c21b49dda24d45ebbf283ee056fb7866.png#pic_center" alt="在这里插入图片描述"></p>
+<p>之后点击环境变量</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/6b6bf6f03a7f4cd2af902d859053ea06.png#pic_center" alt="在这里插入图片描述"></p>
+<p>之后找到系统变量下面的Path，双击进入Path</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/15ffd1f006e1464186655a783f05017e.png#pic_center" alt="在这里插入图片描述"></p>
+<p>之后点击新建</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/c6b8020a8d514b349b5bcad059f5f2c6.png#pic_center" alt="在这里插入图片描述"></p>
+<p>返回文件资源管理器，复制解压出来的文件中bin文件夹所在的绝对路径，将其粘贴到上一步新建需要填入路径的位置，之后一路点击确定即可。</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/82b3b698042947e3be3e59fce966b760.png#pic_center" alt="在这里插入图片描述"></p>
+<p>使用快捷键Win+r打开运行对话框，输入cmd</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/40cd256008fb42f0b35e886e1de51f74.png#pic_center" alt="在这里插入图片描述"></p>
+<p>在cmd窗口中输入gcc -V，显示gcc版本信息，大功告成。</p>
+<p>![外链图片转存失败,源站可能有防盗链机制,建议将图<img src="https://img-blog.csdnimg.cn/direct/d03b8a3b114b4dad847143fd4d66b7bd.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="二、安装cmake"><a href="#二、安装cmake" class="headerlink" title="二、安装cmake"></a>二、安装cmake</h2><h3 id="1、下载cmake"><a href="#1、下载cmake" class="headerlink" title="1、下载cmake"></a>1、下载cmake</h3><p>点击<a target="_blank" rel="noopener" href="https://cmake.org/download/">链接</a><a target="_blank" rel="noopener" href="https://cmake.org/download/%E8%BF%9B%E5%85%A5Cmake%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2%EF%BC%8C%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BD%E9%80%82%E5%90%88%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%8C%E6%88%91%E8%BF%99%E9%87%8C%E4%B8%8B%E8%BD%BDWindows">https://cmake.org/download/进入Cmake官网下载页面，点击下载适合的版本，我这里下载Windows</a> x64版本。<br><img src="https://img-blog.csdnimg.cn/direct/aa11ac5ae86c4957bdd658e50e118a66.png#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="2、安装cmake"><a href="#2、安装cmake" class="headerlink" title="2、安装cmake"></a>2、安装cmake</h3><p>下载完成后以管理员身份运行安装文件，选择将Cmake添加到系统环境变量。</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/d55765dd0c9b40fe9e00d8995e9f5bdf.png#pic_center" alt="在这里插入图片描述"></p>
+<p>修改安装路径，建议安装在C盘之外。</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/c018b83d86204dedb827a4c1d761087d.png#pic_center" alt="在这里插入图片描述"></p>
+<p>最后点击Install，完成安装。</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/745aec76297e438da9175a516e89c684.png#pic_center" alt="在这里插入图片描述"></p>
+<p>使用快捷键Win+r打开运行对话框，输入cmd</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/40cd256008fb42f0b35e886e1de51f74.png#pic_center" alt="在这里插入图片描述"></p>
+<p>在cmd窗口中输入cmake –version，显示cmake版本信息，大功告成。<br><img src="https://img-blog.csdnimg.cn/direct/6dc2a943f85e4212bc760b4cf3c17a2b.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="三、vscode中使用GCC"><a href="#三、vscode中使用GCC" class="headerlink" title="三、vscode中使用GCC"></a>三、vscode中使用GCC</h2><p>在vscode中新建一个最简单的helloworld程序，点击终端，配置默认生成任务。</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/4c130c0df621454c9536eaf85e21c9db.png#pic_center" alt="在这里插入图片描述"></p>
+<p>选择gcc.exe或g++.exe，一般C程序选择gcc.exe，C++程序选择g++.exe，不过没关系，二者都可以编译C和C++程序。</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/943f053f85454c2593db10a1e01b6779.png#pic_center" alt="在这里插入图片描述"></p>
+<p>选择完成后会在.vscode文件夹下生成task.json文件，打开该文件，需要修改的内容主要为gcc&#x2F;g++.exe的路径，和参数“-o”后面的路径，参数“-o”后面的路径为编译完成后可执行文件生成的路径，根据自己的需求配置。</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/491be9c075964ac0a981363b9e10c4e3.png#pic_center" alt="在这里插入图片描述"></p>
+<p>我这里将编译器配置为g++，生成可执行文件的路径配置为build目录之下，之后点击终端，运行生成任务，即可在指定目录下生成可执行文件。</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/8acb0385196d43ce8d04234d40573c05.png#pic_center" alt="在这里插入图片描述"><br>修改后的task.json文件和生成的可执行文件如下图所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/57bbb6b8ccb7459688147660d00c4ae9.png#pic_center" alt="在这里插入图片描述"></p>
+<p>在终端运行可执行文件，输出hello，world！</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/9c463a5b442545eaa37dc26ab4a0c8ab.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="四、vscode中配置Cmake"><a href="#四、vscode中配置Cmake" class="headerlink" title="四、vscode中配置Cmake"></a>四、vscode中配置Cmake</h2><p>首先，在vscode中安装Cmake插件</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/3162932f951740cd840c389496db7837.png#pic_center" alt="在这里插入图片描述"></p>
+<p>安装完成后，使用快捷键Ctrl+Shift+P或者直接在上方搜索框输入“Cmake：p”，选择快速入门，根据指引构建Cmake项目</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/bb6b2f3963614adf8ae09700656d2767.png#pic_center" alt="在这里插入图片描述"></p>
+<p>输入项目名称，任意都行</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/08bf370674da4d58acbcac5e56c014f4.png#pic_center" alt="在这里插入图片描述"></p>
+<p>选择创建C++项目</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/9ce2bf30e30f4680893c954a3a2f618d.png#pic_center" alt="在这里插入图片描述"></p>
+<p>选择创建可执行文件</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/92f154b067cc44939fef95157011ac40.png#pic_center" alt="在这里插入图片描述"></p>
+<p>选择完成后，即生成了完整的cmake项目。打开CMakeLists.txt，修改一些配置。</p>
+<ul>
+<li>最小版本选择的过低会提示不再兼容的警告，只需在后面跟上最大版本号即可，注意自己电脑上本机的cmake版本号要包含在最小版本号到最大版本号之间</li>
+<li>add_execuable中，要将main.cpp改成自己cpp文件的名称</li>
+<li>关于cmake的教程，后续补坑<br><img src="https://img-blog.csdnimg.cn/direct/6c2b2c71a9f64351915b15765f611ea3.png#pic_center" alt="在这里插入图片描述"></li>
+</ul>
+<p>配置完成后在终端逐步输入以下命令，编译文件并生成可执行文件。这里需要注意的是，在Unix系统下，原生GCC编译器支持make命令，而在Windows下，Mingw-w64使用的是mingw32-make命令，习惯的Unix系统开发的小伙伴可能在这里频繁适应make命令构建，不断报错怀疑人生。出了使用mingw32-make命令替代之外，还可以在Mingw-w64&#x2F;bin目录下找到wingw32-make.exe，复制文件，粘贴在bin目录下，改名为make.exe，此时就可以愉快的使用make命令了。</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/c38a218ec2024ea997fd93cd5a578a48.png#pic_center" alt="在这里插入图片描述"></p>
+<p>还有一种更简洁的方式，在vscode中，直接点击左下角的生成，即可生成可执行文件。<br><img src="https://img-blog.csdnimg.cn/direct/f026f8ab71ee4a82b8cf0d9f152e021f.png#pic_center" alt="在这里插入图片描述"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://zf-account.github.io">Aitotra</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://zf-account.github.io/vscode%E9%85%8D%E7%BD%AEC++%E7%8E%AF%E5%A2%83/">https://zf-account.github.io/vscode%E9%85%8D%E7%BD%AEC++%E7%8E%AF%E5%A2%83/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/WechatIMG65.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/ubuntu20.04%E9%85%8D%E7%BD%AEPytorch%E7%8E%AF%E5%A2%83(GPU%E7%89%88)/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2"></div></div><div class="info-2"><div class="info-item-1">@[toc] 一、关于Ubuntu和NVIDIA Driver的安装Ubuntu和NVIDIA Driver的安装请参考其他博主的文章，主要是当时安装的时候没记录，现在不想再折腾这两个东西了。 需要补充的几个点：  安装Ubuntu系统前，多看几遍教程，如果是笔记本安装双系统，最好是看和自己品牌相同的笔记本对应的博客，因为不同厂家的BIOS设置有一些差别。  如果安装玩Ubuntu系统之后，Windows系统引导项找不到了，不要着急，可以进入Ubuntu系统尝试修复Windows引导项。实在不行，可以在某宝花80块钱找人修复（不要问我怎么知道的，因为我就是花了80块钱的那个冤种）。  NVIDIA...</div></div></div></a><a class="pagination-related" href="/vscode%E9%85%8D%E7%BD%AEc++%E7%BC%96%E8%AF%91%E4%BB%A5%E5%8F%8Adebug%E7%8E%AF%E5%A2%83/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2"></div></div><div class="info-2"><div class="info-item-1">1.配置在vscode中通过cmake编译配置vscode基础的c++环境可以参照以下博客，这里给出的是在vscode中进行一系列的配置，最终可以在vscode中通过F7快速编译，编译生成的可执行文件在build文件夹下。ubuntu 上vscode使用cmake编译运行c++程序。但要注意这里面最后的debug部分内容不正确，需要进行额外操作。 2.CMakeLists.txt的编写通过cmake进行编译需要在文件夹下编写CMakeLists.txt，此文件的基础语法可以参照如下博客CMakeLists详解。部分库的引用可以参考ROS包中的CMakeLists.txt的写法。注意相比于ROS包，部分头文件的写法会有一定区别，但对编译影响不大，主要是对代码高亮和引用有影响。 12#include &lt;Eigen/Eigen&gt; //ros中#include&lt;eigen3/Eigen/Core&gt;...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/WechatIMG65.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Aitotra</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#win11%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">win11系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85MinGW-w64"><span class="toc-number">1.1.</span> <span class="toc-text">一、安装MinGW-w64</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E8%A7%A3%E5%8E%8BMinGw-W64"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.下载解压MinGw-W64</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.配置系统环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85cmake"><span class="toc-number">1.2.</span> <span class="toc-text">二、安装cmake</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%B8%8B%E8%BD%BDcmake"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、下载cmake</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85cmake"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、安装cmake</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81vscode%E4%B8%AD%E4%BD%BF%E7%94%A8GCC"><span class="toc-number">1.3.</span> <span class="toc-text">三、vscode中使用GCC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81vscode%E4%B8%AD%E9%85%8D%E7%BD%AECmake"><span class="toc-number">1.4.</span> <span class="toc-text">四、vscode中配置Cmake</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ceshi/" title="ceshi">ceshi</a><time datetime="2025-04-04T09:48:38.000Z" title="Created 2025-04-04 17:48:38">2025-04-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E9%9D%92%E9%BE%99%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83/" title="青龙强化学习环境">青龙强化学习环境</a><time datetime="2025-04-04T09:47:35.850Z" title="Created 2025-04-04 17:47:35">2025-04-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BB%8E%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91mmcv-full%E3%80%81mmdet3d/" title="Untitled">Untitled</a><time datetime="2025-04-04T09:47:35.849Z" title="Created 2025-04-04 17:47:35">2025-04-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E7%BB%99%E4%B8%80%E4%B8%AAC++%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90gtest/" title="Untitled">Untitled</a><time datetime="2025-04-04T09:47:35.849Z" title="Created 2025-04-04 17:47:35">2025-04-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%9C%A8docker%E4%B8%AD%E6%9E%84%E5%BB%BA%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83/" title="Untitled">Untitled</a><time datetime="2025-04-04T09:47:35.848Z" title="Created 2025-04-04 17:47:35">2025-04-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By Aitotra</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
